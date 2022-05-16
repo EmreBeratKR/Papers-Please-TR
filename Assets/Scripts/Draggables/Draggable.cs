@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 namespace Draggables
 {
-    public class Draggable : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+    public abstract class Draggable : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         [SerializeField] private GameObject closed;
         [SerializeField] private GameObject opened;
