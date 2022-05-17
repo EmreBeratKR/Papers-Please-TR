@@ -5,12 +5,15 @@ namespace Draggables
 {
     public class DraggableController : Scenegleton<DraggableController>
     {
+        [SerializeField] private RectTransform dragPanel;
         [SerializeField] private RectTransform topAnchor;
         [SerializeField] private RectTransform bottomAnchor;
         [SerializeField] private RectTransform rightAnchor;
         [SerializeField] private RectTransform leftAnchor;
 
 
+        public static RectTransform DragPanel => Instance.dragPanel;
+        
         public static Draggable CurrentDraggable;
         public static bool HasDraggable => CurrentDraggable != null; 
     

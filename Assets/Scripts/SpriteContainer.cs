@@ -14,4 +14,9 @@ public struct SpriteContainer
     {
         spriteRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
     }
+
+    public void SetColor(Color color)
+    {
+        spriteRenderer.color = color;
+    }
 }

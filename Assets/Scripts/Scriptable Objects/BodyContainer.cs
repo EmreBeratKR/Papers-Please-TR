@@ -1,17 +1,11 @@
-using Procedural_Generators;
+using Person;
 using UnityEngine;
 
 namespace Scriptable_Objects
 {
     [CreateAssetMenu(menuName = "My Containers/New Body Container")]
-    public class BodyContainer : ScriptableObject
+    public class BodyContainer : Container<BodyGenerator>
     {
-        [SerializeField] private BodyGenerator[] bodyGenerators;
-
-
-        public BodyGenerator RandomGenerator
-        {
-            get => bodyGenerators[Random.Range(0, bodyGenerators.Length)];
-        }
+        
     }
 }

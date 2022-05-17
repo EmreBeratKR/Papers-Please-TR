@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a2e5dae1fa9d4f979d388c9333f198e, type: 3}
   m_Name: Default Body Container
   m_EditorClassIdentifier: 
-  bodyGenerators:
-  - {fileID: 7558866206158704483, guid: 29b387588ea514858a25d0758f11ef57, type: 3}
+  items:
+  - {fileID: 5033144427465513069, guid: 45facac11930f42569bb517a07afb6f7, type: 3}
