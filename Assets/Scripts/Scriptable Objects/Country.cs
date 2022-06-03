@@ -1,13 +1,12 @@
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Worlds
+namespace Scriptable_Objects
 {
-    [Serializable]
-    public struct Country
+    [CreateAssetMenu(menuName = "My Objects/Country")]
+    public class Country : ScriptableObject
     {
-        [SerializeField] private string name;
+        [SerializeField] private new string name;
         [SerializeField] private string[] cities;
 
         public string Name => name;

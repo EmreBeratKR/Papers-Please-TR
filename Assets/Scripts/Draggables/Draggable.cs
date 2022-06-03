@@ -1,12 +1,15 @@
+using Inspectables;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Draggables
 {
-    public abstract class Draggable : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+    public abstract class Draggable : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
     {
         [SerializeField] private GameObject closed;
         [SerializeField] private GameObject opened;
+
+        protected GameObject clicked;
         
         private RectTransform rectTransform;
 
@@ -80,6 +83,11 @@ namespace Draggables
             closed.SetActive(true);
 
             state = State.Close;
+        }
+
+        public virtual void OnPointerClick(PointerEventData eventData)
+        {
+            clicked = eventData.pointerPressRaycast.gameObject;
         }
     }
 

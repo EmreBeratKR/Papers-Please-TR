@@ -9,17 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15e5de2bea0d4a339bca812df6779a4e, type: 3}
-  m_Name: Country Container
+  m_Script: {fileID: 11500000, guid: 75930f11e95014311b3004b5228d7616, type: 3}
+  m_Name: Lastname Container
   m_EditorClassIdentifier: 
   items:
-  - name: Turkey
-    cities:
-    - Istanbul
-    - Izmir
-    - Ankara
-    - Antalya
-    - Sivas
-    - Hatay
-    - Adana
-    - Gazi Antep
+  - Kiran
+  - Dindar
+  - Waterson
+  - Gybson
+  - Bayrak
+  - Portakal
+  - "\xC7elik"
