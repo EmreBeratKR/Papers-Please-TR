@@ -1,33 +1,11 @@
 using System;
-using Person;
-using TMPro;
-using UnityEngine;
+using Helpers;
 
 namespace Inspectables
 {
-    public class GenderField : MonoBehaviour, IInspectableField
+    public class GenderField : InspectableField<GenderData>
     {
-        [SerializeField] private TextMeshProUGUI genderField;
-        [SerializeField] private GameObject highlight;
-        private GenderData genderData;
         
-        
-        public void Set(Gender gender)
-        {
-            genderData = new GenderData {gender = gender};
-            genderField.text = gender.ToString();
-        }
-        
-        public IComparableField Inspect()
-        {
-            highlight.SetActive(true);
-            return genderData;
-        }
-
-        public void Cancel()
-        {
-            highlight.SetActive(false);
-        }
     }
 
     
@@ -35,23 +13,38 @@ namespace Inspectables
     public struct GenderData : IComparableField
     {
         public Gender gender;
+        
+        private bool mismatchSolved;
 
         
-        public string Compare(object other)
+        public GenderData(Gender gender)
+        {
+            this.gender = gender;
+            mismatchSolved = false;
+        }
+
+        public ComparisonResult Compare(object other)
         {
             if (other is not GenderData genderData)
             {
-                return "Type Mismatch";
+                return ComparisonResult.Irrelevant;
             }
 
-            return Matches(genderData) ? "Yes" : "No";
+            if (Matches(genderData)) return ComparisonResult.Matched;
+
+            return mismatchSolved ? ComparisonResult.MismatchSolved : ComparisonResult.Mismatched;
         }
 
         public bool Matches(GenderData other)
         {
             return gender == other.gender;
         }
-        
+
+        public void SolveMismatch()
+        {
+            mismatchSolved = true;
+        }
+
         public override string ToString()
         {
             return gender.ToString();

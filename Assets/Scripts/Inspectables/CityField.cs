@@ -1,32 +1,11 @@
 using System;
-using TMPro;
-using UnityEngine;
+using Helpers;
 
 namespace Inspectables
 {
-    public class CityField : MonoBehaviour, IInspectableField
+    public class CityField : InspectableField<CityData>
     {
-        [SerializeField] private TextMeshProUGUI cityField;
-        [SerializeField] private GameObject highlight;
-        private CityData locationData;
-
-
-        public void Set(string cityName)
-        {
-            locationData = new CityData {cityName = cityName};
-            cityField.text = cityName;
-        }
         
-        public IComparableField Inspect()
-        {
-            highlight.SetActive(true);
-            return locationData;
-        }
-
-        public void Cancel()
-        {
-            highlight.SetActive(false);
-        }
     }
     
     [Serializable]
@@ -34,20 +13,35 @@ namespace Inspectables
     {
         public string cityName;
 
+        private bool mismatchSolved;
 
-        public string Compare(object other)
+
+        public CityData(string cityName)
+        {
+            this.cityName = cityName;
+            mismatchSolved = false;
+        }
+
+        public ComparisonResult Compare(object other)
         {
             if (other is not CityData cityData)
             {
-                return "Type Mismatch";
+                return ComparisonResult.Irrelevant;
             }
 
-            return Matches(cityData) ? "Yes" : "No";
+            if (Matches(cityData)) return ComparisonResult.Matched;
+
+            return mismatchSolved ? ComparisonResult.MismatchSolved : ComparisonResult.Mismatched;
         }
 
         public bool Matches(CityData other)
         {
             return cityName == other.cityName;
+        }
+        
+        public void SolveMismatch()
+        {
+            mismatchSolved = true;
         }
 
         public override string ToString()

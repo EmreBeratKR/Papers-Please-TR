@@ -1,8 +1,14 @@
-using UnityEngine;
-
-namespace Person
+namespace Helpers
 {
     public enum Gender { Male, Female }
+
+    public enum ComparisonResult
+    {
+        Matched,
+        Mismatched,
+        Irrelevant,
+        MismatchSolved
+    }
 
 
 

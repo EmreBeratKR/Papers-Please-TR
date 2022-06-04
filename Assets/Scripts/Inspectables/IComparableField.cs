@@ -1,7 +1,10 @@
+using Helpers;
+
 namespace Inspectables
 {
     public interface IComparableField
     {
-        public string Compare(object other);
+        public ComparisonResult Compare(object other);
+        public void SolveMismatch();
     }
 }

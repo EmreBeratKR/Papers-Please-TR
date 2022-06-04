@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f04cffa25a4dc389e2ff9853ab6df2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cityField: {fileID: 466884168914578085}
+  field: {fileID: 466884168914578085}
   highlight: {fileID: 7480174686736287166}
 --- !u!114 &466884168914578085
 MonoBehaviour:
@@ -944,7 +944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56e4f50ddff487ca9ea7c0c3173459f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  genderField: {fileID: 3709743177339817056}
+  field: {fileID: 3709743177339817056}
   highlight: {fileID: 6661604929523349843}
 --- !u!114 &3709743177339817056
 MonoBehaviour:
@@ -1268,7 +1268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce12abb82c74d159cf5b985a31923c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameField: {fileID: 1109674200889006538}
+  field: {fileID: 1109674200889006538}
   highlight: {fileID: 7102145253609071035}
 --- !u!114 &1109674200889006538
 MonoBehaviour:
@@ -1928,7 +1928,7 @@ PrefabInstance:
     - target: {fileID: 7728100334816191914, guid: b7747c239a4c84220a9f3474340b4a8b,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7728100334816191916, guid: b7747c239a4c84220a9f3474340b4a8b,
         type: 3}

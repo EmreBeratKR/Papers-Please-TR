@@ -1,32 +1,11 @@
 using System;
-using TMPro;
-using UnityEngine;
+using Helpers;
 
 namespace Inspectables
 {
-    public class NameField : MonoBehaviour, IInspectableField
+    public class NameField : InspectableField<NameData>
     {
-        [SerializeField] private TextMeshProUGUI nameField;
-        [SerializeField] private GameObject highlight;
-        private NameData nameData;
         
-        
-        public void Set(string firstName, string lastName)
-        {
-            nameData = new NameData {firstName = firstName, lastName = lastName};
-            nameField.text = $"{lastName}, {firstName}";
-        }
-
-        public IComparableField Inspect()
-        {
-            highlight.SetActive(true);
-            return nameData;
-        }
-
-        public void Cancel()
-        {
-            highlight.SetActive(false);
-        }
     }
 
     [Serializable]
@@ -34,21 +13,37 @@ namespace Inspectables
     {
         public string firstName;
         public string lastName;
-
         
-        public string Compare(object other)
+        private bool mismatchSolved;
+
+
+        public NameData(string firstName, string lastName)
+        {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            mismatchSolved = false;
+        }
+
+        public ComparisonResult Compare(object other)
         {
             if (other is not NameData nameData)
             {
-                return "Type Mismatch";
+                return ComparisonResult.Irrelevant;
             }
 
-            return Matches(nameData) ? "Yes" : "No";
+            if (Matches(nameData)) return ComparisonResult.Matched;
+
+            return mismatchSolved ? ComparisonResult.MismatchSolved : ComparisonResult.Mismatched;
         }
 
         public bool Matches(NameData other)
         {
             return firstName == other.firstName && lastName == other.lastName;
+        }
+        
+        public void SolveMismatch()
+        {
+            mismatchSolved = true;
         }
 
         public override string ToString()

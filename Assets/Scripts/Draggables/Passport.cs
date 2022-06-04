@@ -14,9 +14,9 @@ namespace Draggables
         
         public void Generate(PersonIdentity identity)
         {
-            nameField.Set(identity.Firstname, identity.Lastname);
-            genderField.Set(identity.Gender);
-            cityField.Set(identity.City);
+            nameField.Set(new NameData{firstName = identity.Firstname, lastName = identity.Lastname});
+            genderField.Set(new GenderData{gender = identity.Gender});
+            cityField.Set(new CityData{cityName = identity.City});
         }
 
         public override void OnPointerClick(PointerEventData eventData)

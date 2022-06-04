@@ -6,9 +6,11 @@ using UnityEngine.InputSystem;
 
 public class PointerHandler : MonoBehaviour
 {
-    private static readonly List<RaycastResult> RaycastResults = new();
-
+    public const float DoubleClickInterval = 0.5f;
+    
     public static Vector2 PointerPosition;
+
+    private static readonly List<RaycastResult> RaycastResults = new();
 
 
 
