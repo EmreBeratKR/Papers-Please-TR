@@ -10,6 +10,7 @@ namespace Draggables
         [SerializeField] private NameField nameField;
         [SerializeField] private GenderField genderField;
         [SerializeField] private CityField cityField;
+        [SerializeField] private PhotoField photoField;
         
         
         public void Generate(PersonIdentity identity)
@@ -17,6 +18,7 @@ namespace Draggables
             nameField.Set(new NameData{firstName = identity.Firstname, lastName = identity.Lastname});
             genderField.Set(new GenderData{gender = identity.Gender});
             cityField.Set(new CityData{cityName = identity.City});
+            photoField.Set(new PhotoData{photoSerial = identity.FaceSerial});
         }
 
         public override void OnPointerClick(PointerEventData eventData)

@@ -1,11 +1,20 @@
 using System;
 using Helpers;
+using TMPro;
+using UnityEngine;
 
 namespace Inspectables
 {
     public class CityField : InspectableField<CityData>
     {
-        
+        [SerializeField] private TMP_Text field;
+
+
+        public override void Set(CityData data)
+        {
+            base.Set(data);
+            field.text = data.ToString();
+        }
     }
     
     [Serializable]

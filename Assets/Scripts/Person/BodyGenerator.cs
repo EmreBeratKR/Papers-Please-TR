@@ -8,17 +8,21 @@ namespace Person
     {
         [SerializeField] private SpriteRenderer face;
         [SerializeField] private SpriteContainer[] bodyParts;
+        [SerializeField] private string bodySerial;
 
         [Header("Fade Animation")]
         [SerializeField] private AnimationCurve fadeCurve;
         [SerializeField] private float fadeSpeed;
-
         
-        public void Generate()
+        
+        public void Generate(out string faceSerial)
         {
+            faceSerial = bodySerial;
+            
             foreach (var bodyPart in bodyParts)
             {
-                bodyPart.Generate();
+                var spriteIndex = bodyPart.Generate();
+                faceSerial += spriteIndex.ToString();
             }
         }
 

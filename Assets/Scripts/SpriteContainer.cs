@@ -10,9 +10,11 @@ public struct SpriteContainer
     [SerializeField] private Sprite[] sprites;
 
 
-    public void Generate()
+    public int Generate()
     {
-        spriteRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
+        var randomIndex = Random.Range(0, sprites.Length);
+        spriteRenderer.sprite = sprites[randomIndex];
+        return randomIndex;
     }
 
     public void SetColor(Color color)

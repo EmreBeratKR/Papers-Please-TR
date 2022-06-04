@@ -1,22 +1,18 @@
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Inspectables
 {
     public abstract class InspectableField<T> : MonoBehaviour, IInspectableField 
         where T : IComparableField
     {
-        [SerializeField] private TMP_Text field;
         [SerializeField] private GameObject highlight;
         private T fieldData;
         private bool inspecting;
 
 
-        public void Set(T data)
+        public virtual void Set(T data)
         {
             fieldData = data;
-            field.text = data.ToString();
         }
 
         public IComparableField Inspect()

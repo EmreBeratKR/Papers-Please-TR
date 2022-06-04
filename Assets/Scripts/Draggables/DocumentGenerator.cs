@@ -9,8 +9,8 @@ namespace Draggables
     {
         [SerializeField] private DocumentContainer passports; 
         [SerializeField] private PersonIdentity identity;
-        
-        
+
+
         [Button()]
         public void GeneratePassport()
         {

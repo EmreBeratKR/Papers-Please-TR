@@ -16,14 +16,16 @@ namespace Person
         [Button()]
         public void Generate()
         {
-            identity.Generate();
-            
             if (body == null)
             {
                 body = Instantiate(bodies.Random, appearance);
             }
             
-            body.Generate();
+            body.Generate(out var faceSerial);
+            
+            identity.Generate(faceSerial);
+
+            Debug.Log(faceSerial);
         }
 
         public Coroutine Illuminate()

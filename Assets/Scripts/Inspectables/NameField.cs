@@ -1,11 +1,20 @@
 using System;
 using Helpers;
+using TMPro;
+using UnityEngine;
 
 namespace Inspectables
 {
     public class NameField : InspectableField<NameData>
     {
-        
+        [SerializeField] private TMP_Text field;
+
+
+        public override void Set(NameData data)
+        {
+            base.Set(data);
+            field.text = data.ToString();
+        }
     }
 
     [Serializable]

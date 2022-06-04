@@ -15,9 +15,10 @@ namespace Person
         public string Country { get; private set; }
         public string City { get; private set; }
         public Gender Gender { get; private set; }
+        public string FaceSerial { get; private set; }
 
 
-        public void Generate()
+        public void Generate(string faceSerial)
         {
             Firstname = firstnames.Random;
             Lastname = lastnames.Random;
@@ -27,6 +28,8 @@ namespace Person
             City = randomCountry.RandomCity;
 
             Gender = Gender.Random();
+
+            FaceSerial = faceSerial;
         }
     }
 }

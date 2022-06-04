@@ -1,11 +1,20 @@
 using System;
 using Helpers;
+using TMPro;
+using UnityEngine;
 
 namespace Inspectables
 {
     public class GenderField : InspectableField<GenderData>
     {
-        
+        [SerializeField] private TMP_Text field;
+
+
+        public override void Set(GenderData data)
+        {
+            base.Set(data);
+            field.text = data.ToString();
+        }
     }
 
     
